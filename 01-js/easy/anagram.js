@@ -5,7 +5,35 @@
 */
 
 function isAnagram(str1, str2) {
+  let hist = {};
 
+  for (let i = 0; i < str1.length; i++) {
+    let char = str1[i].toLowerCase();
+
+    if (char in hist) {
+      hist[char]++;
+    } else {
+      hist[char] = 1;
+    }
+  }
+
+  for (let i = 0; i < str2.length; i++) {
+    let char = str2[i].toLowerCase();
+
+    if (char in hist) {
+      hist[char]--;
+    } else {
+      return false;
+    }
+  }
+
+  for (let key in hist) {
+    if (hist[key]) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 module.exports = isAnagram;
