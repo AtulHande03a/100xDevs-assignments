@@ -14,7 +14,6 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  console.log(transactions);
   const totals = {};
   transactions.forEach((transaction) => {
     const { category, price } = transaction;
